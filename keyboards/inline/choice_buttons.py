@@ -29,3 +29,4 @@ stroys_keyboard = InlineKeyboardMarkup(inline_keyboard=[
         InlineKeyboardButton(text="Купи тут", url=URL_STROYS)
     ]
 ])
+

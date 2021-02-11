@@ -42,3 +42,12 @@ async def buying_stroys(call: CallbackQuery, callback_data: dict):
     quantity = callback_data.get("quantity")
     await call.message.answer(f"Вы выбрали услуги строительства. Услуги строительства наличивают всего {quantity} услуг. Спасибо.",
                               reply_markup=stroys_keyboard)
+
+
+@dp.callback_query_handler(text="cancel")
+async def cancel_buying(call: CallbackQuery):
+    # Ответим в окошке с уведомлением!
+    await call.answer("Вы отменили эту покупку!", show_alert=True)
+
+    # Вариант 1 - Отправляем пустую клваиатуру изменяя сообщение, для того, чтобы ее убрать из сообщения!
+    await call.message.edit_reply_markup(reply_markup=None)
